@@ -1,0 +1,17 @@
+/* Phosphor Icons (MIT) — subset to the glyphs this app uses. Regular style, Light weight by default; Fill for active states. */
+@font-face { font-family: "Phosphor-Light"; src: url("Phosphor-Light-subset.woff2") format("woff2"); font-weight: normal; font-style: normal; font-display: block; }
+.ph-light { font-family: "Phosphor-Light" !important; speak: never; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+.ph-light.ph-arrow-counter-clockwise:before { content: "\e038"; }
+.ph-light.ph-arrow-right:before { content: "\e06c"; }
+.ph-light.ph-caret-left:before { content: "\e138"; }
+.ph-light.ph-caret-right:before { content: "\e13a"; }
+.ph-light.ph-desktop:before { content: "\e560"; }
+.ph-light.ph-link:before { content: "\e2e2"; }
+.ph-light.ph-moon:before { content: "\e330"; }
+.ph-light.ph-shuffle:before { content: "\e422"; }
+.ph-light.ph-sun:before { content: "\e472"; }
+@font-face { font-family: "Phosphor-Fill"; src: url("Phosphor-Fill-subset.woff2") format("woff2"); font-weight: normal; font-style: normal; font-display: block; }
+.ph-fill { font-family: "Phosphor-Fill" !important; speak: never; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+.ph-fill.ph-desktop:before { content: "\e560"; }
+.ph-fill.ph-moon:before { content: "\e330"; }
+.ph-fill.ph-sun:before { content: "\e472"; }
