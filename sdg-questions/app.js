@@ -186,7 +186,7 @@
       historyList.appendChild(li);
       return;
     }
-    inScope.slice(-12).reverse().forEach((n) => {
+    inScope.slice().reverse().forEach((n) => {
       const li = document.createElement('li');
       const b = document.createElement('button');
       b.type = 'button';
@@ -197,6 +197,25 @@
       li.appendChild(b);
       historyList.appendChild(li);
     });
+    keepCurrentInView();
+  }
+
+  // The list shows 4 rows and scrolls; keep the current question's chip in view
+  // (the newest question sits first, so this usually snaps back to the top).
+  function keepCurrentInView() {
+    const active = historyList.querySelector('[aria-current="true"]');
+    if (!active || active.parentElement === historyList.firstElementChild) {
+      historyList.scrollTop = 0;
+      return;
+    }
+    const li = active.parentElement;
+    const top = li.offsetTop; // list is position: relative, so this is relative to it
+    const bottom = top + li.offsetHeight;
+    const pad = 3;
+    if (top < historyList.scrollTop) historyList.scrollTop = top - pad;
+    else if (bottom > historyList.scrollTop + historyList.clientHeight) {
+      historyList.scrollTop = bottom - historyList.clientHeight + pad;
+    }
   }
 
   // ---------- display ----------
