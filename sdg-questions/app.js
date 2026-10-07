@@ -161,9 +161,10 @@
 
   function saveAsked() { store.set('sdg-asked-v2', JSON.stringify(asked)); }
 
+  // Record a question the first time it's shown. Revisiting it (history chip,
+  // previous/next, a link) keeps its original place in the list.
   function markAsked(n) {
-    const i = asked.indexOf(n);
-    if (i !== -1) asked.splice(i, 1);
+    if (asked.includes(n)) return;
     asked.push(n);
     saveAsked();
   }
@@ -186,7 +187,8 @@
       historyList.appendChild(li);
       return;
     }
-    inScope.slice(-12).reverse().forEach((n) => {
+    // Oldest first: each new question is added at the end, so chips never shift.
+    inScope.forEach((n) => {
       const li = document.createElement('li');
       const b = document.createElement('button');
       b.type = 'button';
